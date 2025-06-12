@@ -11,4 +11,6 @@ namespace RoomConstants
     const char* const STATUS_FREE = "Free";
     const char* const STATUS_RESERVED = "Reserved";
     const char* const STATUS_MAINTENANCE = "Maintenance";
+
+    const double DOUBLE_ROOM_COEF = 1.20;
 }
