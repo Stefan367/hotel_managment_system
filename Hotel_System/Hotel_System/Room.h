@@ -1,6 +1,6 @@
 #pragma once
 
-#include "my_string.h"
+#include "RoomType.h"
 #include "Constants.h"
 
 class Room

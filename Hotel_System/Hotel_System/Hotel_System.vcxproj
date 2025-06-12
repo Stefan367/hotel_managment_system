@@ -129,10 +129,15 @@
   <ItemGroup>
     <ClCompile Include="Hotel_System.cpp" />
     <ClCompile Include="my_string.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="RoomType.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="my_string.h" />
     <ClInclude Include="my_vector.hpp" />
+    <ClInclude Include="Room.h" />
+    <ClInclude Include="RoomType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

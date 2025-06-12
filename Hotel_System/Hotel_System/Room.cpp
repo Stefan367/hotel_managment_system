@@ -2,7 +2,8 @@
 #include <iostream>
 #include <stdexcept>
 
-Room::Room(int roomNumber, double basePrice) : roomNumber(roomNumber), basePrice(basePrice), status("Free")
+Room::Room(int roomNumber, double basePrice) 
+    : roomNumber(roomNumber), basePrice(basePrice), status(RoomConstants::STATUS_FREE)
 {
     if (roomNumber <= 0)
     {
