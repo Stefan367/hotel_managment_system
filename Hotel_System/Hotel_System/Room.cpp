@@ -2,8 +2,8 @@
 #include <iostream>
 #include <stdexcept>
 
-Room::Room(int roomNumber, double basePrice) 
-    : roomNumber(roomNumber), basePrice(basePrice), status(RoomConstants::STATUS_FREE)
+Room::Room(int roomNumber, double basePrice, RoomType type)
+    : roomNumber(roomNumber), basePrice(basePrice), status("Free"), type(type)
 {
     if (roomNumber <= 0)
     {
@@ -49,4 +49,9 @@ void Room::setBasePrice(double price)
         throw std::invalid_argument("Invalid argument! Base price cannot be negative.");
     }
     basePrice = price;
+}
+
+RoomType Room::getType() const
+{
+    return type;
 }

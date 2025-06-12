@@ -27,6 +27,9 @@
     <ClCompile Include="RoomType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SingleRoom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="my_vector.hpp">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RoomType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
