@@ -1,4 +1,7 @@
-﻿  DoubleRoom.cpp
+﻿  Apartment.cpp
+  ConferenceRoom.cpp
+  DoubleRoom.cpp
+  LuxuryRoom.cpp
   Room.cpp
   SingleRoom.cpp
   Generating Code...
