@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DoubleRoom.cpp" />
     <ClCompile Include="Hotel_System.cpp" />
     <ClCompile Include="my_string.cpp" />
     <ClCompile Include="Room.cpp" />
@@ -135,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="DoubleRoom.h" />
     <ClInclude Include="my_string.h" />
     <ClInclude Include="my_vector.hpp" />
     <ClInclude Include="Room.h" />
