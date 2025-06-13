@@ -14,3 +14,9 @@ namespace RoomConstants
 
     const double WEEKEND_COEF = 1.5;
 }
+
+namespace GuestConstants
+{
+    const int GOLD_TIER_RESERVATIONS = 3;
+    const int PLATINIUM_TIER_RESERVATIONS = 10;
+}
