@@ -2,6 +2,7 @@
   ConferenceRoom.cpp
   DoubleRoom.cpp
   LuxuryRoom.cpp
+  PricingTable.cpp
   Room.cpp
   SingleRoom.cpp
   Generating Code...

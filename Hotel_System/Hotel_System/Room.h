@@ -16,7 +16,6 @@ protected:
 public:
     virtual ~Room() = default;
 
-    virtual double calculatePrice() const = 0;
     virtual void displayInfo() const = 0;
     virtual Room* clone() const = 0;
 
