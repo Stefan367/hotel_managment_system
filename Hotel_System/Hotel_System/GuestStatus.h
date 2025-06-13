@@ -8,4 +8,4 @@ enum class GuestStatus
 };
 
 const char* to_string(GuestStatus status);
-GuestStatus classify_from_history(int reservationsCount);
+GuestStatus classifyFromHistory(int reservationsCount);

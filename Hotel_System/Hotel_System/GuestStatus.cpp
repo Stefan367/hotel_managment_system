@@ -12,7 +12,8 @@ const char* to_string(GuestStatus status)
     }
 }
 
-GuestStatus classify_from_history(int reservationsCount) {
+GuestStatus classifyFromHistory(int reservationsCount)
+{
     if (reservationsCount >= GuestConstants::PLATINIUM_TIER_RESERVATIONS) return GuestStatus::Platinum;
     if (reservationsCount >= GuestConstants::GOLD_TIER_RESERVATIONS) return GuestStatus::Gold;
     return GuestStatus::Regular;
