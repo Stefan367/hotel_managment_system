@@ -1,9 +1,2 @@
-﻿  Apartment.cpp
-  ConferenceRoom.cpp
-  DoubleRoom.cpp
-  LuxuryRoom.cpp
-  PricingTable.cpp
-  Room.cpp
-  SingleRoom.cpp
-  Generating Code...
+﻿  Hotel_System.cpp
   Hotel_System.vcxproj -> C:\stefan\Hotel_Mangment_System\hotel_managment_system\Hotel_System\x64\Debug\Hotel_System.exe
