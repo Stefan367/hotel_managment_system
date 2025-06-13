@@ -28,7 +28,7 @@ bool GuestValidator::is_valid_email(const my_string& email)
         }
     }
 
-    if (len >= 4 &&
+    if (len >= 10 &&
         email[len - 4] == '.' &&
         email[len - 3] == 'c' &&
         email[len - 2] == 'o' &&
