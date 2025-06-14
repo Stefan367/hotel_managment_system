@@ -97,6 +97,25 @@ my_string& my_string::operator+=(const my_string& other)
 	return *this;
 }
 
+my_string& my_string::operator+=(char ch)
+{
+	size_t len = get_length();
+	char* new_data = new char[len + 2];
+
+	for (size_t i = 0; i < len; ++i)
+	{
+		new_data[i] = data[i];
+	}
+
+	new_data[len] = ch;
+	new_data[len + 1] = '\0';
+
+	free();
+	data = new_data;
+
+	return *this;
+}
+
 my_string operator+(const my_string& lhs, const my_string& rhs)
 {
 	my_string result(lhs);

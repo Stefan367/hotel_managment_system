@@ -1,7 +1,7 @@
 #include "GuestStatus.h"
 #include "Constants.h"
 
-const char* to_string(GuestStatus status)
+my_string to_string(GuestStatus status)
 {
     switch (status)
     {
@@ -10,6 +10,15 @@ const char* to_string(GuestStatus status)
     case GuestStatus::Platinum: return "Platinum";
     default: return "Unknown";
     }
+}
+
+GuestStatus string_to_status(const my_string& str)
+{
+    if (str == "0" || str == "Regular") return GuestStatus::Regular;
+    if (str == "1" || str == "Gold") return GuestStatus::Gold;
+    if (str == "2" || str == "Platinum") return GuestStatus::Platinum;
+
+    throw std::runtime_error("Invalid GuestStatus value.");
 }
 
 GuestStatus classifyFromHistory(int reservationsCount)

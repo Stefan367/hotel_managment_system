@@ -1,0 +1,1 @@
+Ivan Ivanov|0888123456|ivan@example.com|1|Regular|2|RES123,RES456

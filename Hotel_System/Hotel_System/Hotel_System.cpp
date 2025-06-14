@@ -2,13 +2,14 @@
 //
 
 #include <iostream>
-#include "my_vector.hpp"
-#include "FileStorageHandler.h"
-#include "PricingTable.h"
-#include "Room.h"
-#include "RoomType.h"
+#include "Guest.h"
+#include "GuestManager.h"
+#include "GuestValidator.h"
+#include "GuestFileHandler.h"
+#include "my_string_utils.h"
 
 int main()
 {
     std::cout << "Hello world!\n";
 }
+

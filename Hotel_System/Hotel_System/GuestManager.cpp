@@ -1,32 +1,37 @@
 #include "GuestManager.h"
 #include "GuestValidator.h"
 
-bool GuestManager::addGuest(const my_string& name, const my_string& phone, const my_string& email)
+bool GuestManager::addGuest(const Guest& guest)
 {
-	if (!GuestValidator::is_valid_phone(phone))
-	{
-		throw std::invalid_argument("Invalid phone number! It should be digits only and exactly 10 symbols long.");
-	}
+    if (!GuestValidator::isPhoneValid(guest.getPhone()))
+    {
+        throw std::invalid_argument("Invalid phone number! It should contain only digits and be exactly 10 characters long.");
+    }
 
-	if (!GuestValidator::is_valid_email(email))
-	{
-		throw std::invalid_argument("Invalid email address! It should be at least 10 characters long and contains @ and ends with .com");
-	}
+    if (!GuestValidator::isEmailValid(guest.getEmail()))
+    {
+        throw std::invalid_argument("Invalid email address! It must contain '@' and end with '.com'.");
+    }
 
-	if (!GuestValidator::is_valid_client_number(nextClientNumber))
-	{
-		throw std::invalid_argument("Invalid client number! It should be a positive number.");
-	}
+    if (!GuestValidator::isClientNumberValid(guest.getClientNumber()))
+    {
+        throw std::invalid_argument("Invalid client number! It should be a non-negative number.");
+    }
 
-	if (!GuestValidator::is_unique_client_number(nextClientNumber, guests))
-	{
-		throw std::invalid_argument("Client number already exists.");
-	}
+    if (!GuestValidator::isClientNumberUnique(guest.getClientNumber(), guests))
+    {
+        throw std::invalid_argument("Client number already exists.");
+    }
 
-	Guest guest(name, phone, email, nextClientNumber++);
-	guests.push_back(guest);
-	std::cout << "Guest added successfully.\n";
-	return true;
+    guests.push_back(guest);
+    std::cout << "Guest added successfully.\n";
+
+    if (guest.getClientNumber() >= nextClientNumber)
+    {
+        nextClientNumber = guest.getClientNumber() + 1;
+    }
+
+    return true;
 }
 
 const Guest* GuestManager::findGuestByNumber(int clientNumber) const
@@ -39,6 +44,24 @@ const Guest* GuestManager::findGuestByNumber(int clientNumber) const
 		}
 	}
 	return nullptr;
+}
+
+Guest* GuestManager::getGuestByNumber(int clientNumber)
+{
+    for (size_t i = 0; i < guests.get_size(); i++)
+    {
+        if (guests[i].getClientNumber() == clientNumber)
+        {
+            return &guests[i];
+        }
+    }
+    return nullptr;
+}
+
+void GuestManager::clearGuests()
+{
+    guests.clear();
+    nextClientNumber = 1;
 }
 
 void GuestManager::printAllGuests() const
@@ -58,6 +81,11 @@ void GuestManager::printAllGuests() const
 size_t GuestManager::getGuestCount() const
 {
 	return guests.get_size();
+}
+
+my_vector<Guest>& GuestManager::getGuests()
+{
+    return guests;
 }
 
 const my_vector<Guest>& GuestManager::getGuests() const

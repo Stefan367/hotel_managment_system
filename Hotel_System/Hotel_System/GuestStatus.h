@@ -1,4 +1,5 @@
 #pragma once
+#include "my_string.h"
 
 enum class GuestStatus
 {
@@ -7,5 +8,8 @@ enum class GuestStatus
     Platinum
 };
 
-const char* to_string(GuestStatus status);
+my_string to_string(GuestStatus status);
+
+GuestStatus string_to_status(const my_string& str);
+
 GuestStatus classifyFromHistory(int reservationsCount);

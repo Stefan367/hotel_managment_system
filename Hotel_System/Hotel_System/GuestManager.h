@@ -9,11 +9,14 @@ private:
     int nextClientNumber = 1;
 
 public:
-    bool addGuest(const my_string& name, const my_string& phone, const my_string& email);
+    bool addGuest(const Guest& guest);
 
     const Guest* findGuestByNumber(int clientNumber) const;
+    Guest* getGuestByNumber(int clientNumber);
     void printAllGuests() const;
+    void clearGuests();
 
     size_t getGuestCount() const;
     const my_vector<Guest>& getGuests() const;
+    my_vector<Guest>& getGuests();
 };

@@ -2,10 +2,11 @@
 
 #include "Guest.h"
 
-namespace GuestValidator
+class GuestValidator
 {
-    bool is_valid_phone(const my_string& phone);
-    bool is_valid_email(const my_string& email);
-    bool is_valid_client_number(int number);
-    bool is_unique_client_number(int number, const my_vector<Guest>& guests);
-}
+public:
+    static bool isPhoneValid(const my_string& phone);
+    static bool isEmailValid(const my_string& email);
+    static bool isClientNumberValid(int number);
+    static bool isClientNumberUnique(int number, const my_vector<Guest>& guests);
+};

@@ -24,6 +24,7 @@ public:
 	char operator[](size_t index) const;
 
 	my_string& operator+=(const my_string& other);
+	my_string& operator+=(char ch);
 
 	friend my_string operator+(const my_string& lhs, const my_string& rhs);
 	friend istream& operator>>(istream& in, my_string& str);
