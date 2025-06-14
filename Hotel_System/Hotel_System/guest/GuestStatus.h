@@ -1,5 +1,5 @@
 #pragma once
-#include "my_string.h"
+#include "../core/my_string.h"
 
 enum class GuestStatus
 {

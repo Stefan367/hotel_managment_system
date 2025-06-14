@@ -1,1 +1,3 @@
-Ivan Ivanov|0888123456|ivan@example.com|1|Regular|2|RES123,RES456
+Ivan Ivanov|0888123456|ivan@gmail.com|1|Regular|0|
+Maria Petrova|0899123456|maria@abv.com|2|Regular|0|
+Georgi Georgiev|0878123456|georgi@yahoo.com|3|Regular|0|

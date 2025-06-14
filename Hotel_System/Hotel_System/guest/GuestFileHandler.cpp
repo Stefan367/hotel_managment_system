@@ -1,6 +1,6 @@
 #include "GuestFileHandler.h"
 #include "GuestStatus.h"
-#include "my_string_utils.h"
+#include "../core/my_string_utils.h"
 #include <fstream>
 
 const int inputPartsCount = 6;

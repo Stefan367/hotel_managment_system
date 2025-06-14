@@ -127,44 +127,44 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Apartment.cpp" />
-    <ClCompile Include="ConferenceRoom.cpp" />
-    <ClCompile Include="DoubleRoom.cpp" />
-    <ClCompile Include="FileStorageHandler.cpp" />
-    <ClCompile Include="Guest.cpp" />
-    <ClCompile Include="GuestFileHandler.cpp" />
-    <ClCompile Include="GuestManager.cpp" />
-    <ClCompile Include="GuestStatus.cpp" />
-    <ClCompile Include="GuestValidator.cpp" />
+    <ClCompile Include="core\my_string.cpp" />
+    <ClCompile Include="core\my_string_utils.cpp" />
+    <ClCompile Include="guest\Guest.cpp" />
+    <ClCompile Include="guest\GuestFileHandler.cpp" />
+    <ClCompile Include="guest\GuestManager.cpp" />
+    <ClCompile Include="guest\GuestStatus.cpp" />
+    <ClCompile Include="guest\GuestValidator.cpp" />
     <ClCompile Include="Hotel_System.cpp" />
-    <ClCompile Include="LuxuryRoom.cpp" />
-    <ClCompile Include="my_string.cpp" />
-    <ClCompile Include="my_string_utils.cpp" />
-    <ClCompile Include="PricingTable.cpp" />
-    <ClCompile Include="Room.cpp" />
-    <ClCompile Include="RoomType.cpp" />
-    <ClCompile Include="SingleRoom.cpp" />
+    <ClCompile Include="room\Apartment.cpp" />
+    <ClCompile Include="room\ConferenceRoom.cpp" />
+    <ClCompile Include="room\DoubleRoom.cpp" />
+    <ClCompile Include="room\FileStorageHandler.cpp" />
+    <ClCompile Include="room\LuxuryRoom.cpp" />
+    <ClCompile Include="room\PricingTable.cpp" />
+    <ClCompile Include="room\Room.cpp" />
+    <ClCompile Include="room\RoomType.cpp" />
+    <ClCompile Include="room\SingleRoom.cpp" />
     <ClCompile Include="ValidationFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Apartment.h" />
-    <ClInclude Include="ConferenceRoom.h" />
     <ClInclude Include="Constants.h" />
-    <ClInclude Include="DoubleRoom.h" />
-    <ClInclude Include="FileStorageHandler.h" />
-    <ClInclude Include="Guest.h" />
-    <ClInclude Include="GuestFileHandler.h" />
-    <ClInclude Include="GuestManager.h" />
-    <ClInclude Include="GuestStatus.h" />
-    <ClInclude Include="GuestValidator.h" />
-    <ClInclude Include="LuxuryRoom.h" />
-    <ClInclude Include="my_string.h" />
-    <ClInclude Include="my_string_utils.h" />
-    <ClInclude Include="my_vector.hpp" />
-    <ClInclude Include="PricingTable.h" />
-    <ClInclude Include="Room.h" />
-    <ClInclude Include="RoomType.h" />
-    <ClInclude Include="SingleRoom.h" />
+    <ClInclude Include="core\my_string.h" />
+    <ClInclude Include="core\my_string_utils.h" />
+    <ClInclude Include="core\my_vector.hpp" />
+    <ClInclude Include="guest\Guest.h" />
+    <ClInclude Include="guest\GuestFileHandler.h" />
+    <ClInclude Include="guest\GuestManager.h" />
+    <ClInclude Include="guest\GuestStatus.h" />
+    <ClInclude Include="guest\GuestValidator.h" />
+    <ClInclude Include="room\Apartment.h" />
+    <ClInclude Include="room\ConferenceRoom.h" />
+    <ClInclude Include="room\DoubleRoom.h" />
+    <ClInclude Include="room\FileStorageHandler.h" />
+    <ClInclude Include="room\LuxuryRoom.h" />
+    <ClInclude Include="room\PricingTable.h" />
+    <ClInclude Include="room\Room.h" />
+    <ClInclude Include="room\RoomType.h" />
+    <ClInclude Include="room\SingleRoom.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

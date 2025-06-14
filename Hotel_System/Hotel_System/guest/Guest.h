@@ -1,8 +1,8 @@
 #pragma once
 
-#include "my_string.h"
+#include "../core/my_string.h"
 #include "GuestStatus.h"
-#include "my_vector.hpp"
+#include "../core/my_vector.hpp"
 
 class Guest
 {

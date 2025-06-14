@@ -13,116 +13,119 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="room">
+      <UniqueIdentifier>{cdd5a410-d3c4-48ae-9cf8-a89f3d755c69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Hotel_System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="my_string.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Room.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RoomType.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SingleRoom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DoubleRoom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LuxuryRoom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ConferenceRoom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Apartment.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PricingTable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FileStorageHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GuestStatus.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Guest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ValidationFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GuestValidator.cpp">
+    <ClCompile Include="room\Apartment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GuestManager.cpp">
+    <ClCompile Include="room\ConferenceRoom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GuestFileHandler.cpp">
+    <ClCompile Include="room\DoubleRoom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="my_string_utils.cpp">
+    <ClCompile Include="room\LuxuryRoom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="room\PricingTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="room\Room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="room\RoomType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="room\SingleRoom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="room\FileStorageHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="guest\Guest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="guest\GuestFileHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="guest\GuestManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="guest\GuestStatus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="guest\GuestValidator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\my_string.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\my_string_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="my_vector.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="my_string.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Room.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RoomType.h">
+    <ClInclude Include="room\Apartment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SingleRoom.h">
+    <ClInclude Include="room\ConferenceRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DoubleRoom.h">
+    <ClInclude Include="room\DoubleRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LuxuryRoom.h">
+    <ClInclude Include="room\LuxuryRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ConferenceRoom.h">
+    <ClInclude Include="room\PricingTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Apartment.h">
+    <ClInclude Include="room\Room.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PricingTable.h">
+    <ClInclude Include="room\RoomType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileStorageHandler.h">
+    <ClInclude Include="room\SingleRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GuestStatus.h">
+    <ClInclude Include="room\FileStorageHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Guest.h">
+    <ClInclude Include="guest\Guest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GuestValidator.h">
+    <ClInclude Include="guest\GuestFileHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GuestManager.h">
+    <ClInclude Include="guest\GuestManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GuestFileHandler.h">
+    <ClInclude Include="guest\GuestStatus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="my_string_utils.h">
+    <ClInclude Include="guest\GuestValidator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\my_string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\my_string_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\my_vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
