@@ -1,2 +1,27 @@
-﻿  Hotel_System.cpp
+﻿  Date.cpp
+  GuestStatus.cpp
+  Hotel_System.cpp
+  Reservation.cpp
+  ReservationFileHandler.cpp
+  ReservationManager.cpp
+  Apartment.cpp
+  ConferenceRoom.cpp
+  DoubleRoom.cpp
+  FileStorageHandler.cpp
+  LuxuryRoom.cpp
+  PricingTable.cpp
+  Room.cpp
+  SingleRoom.cpp
+  Accountant.cpp
+  ActionReport.cpp
+  ActionReportFileHandler.cpp
+  Manager.cpp
+  Receptionist.cpp
+  Role.cpp
+  Generating Code...
+  Compiling...
+  User.cpp
+  UserFileHandler.cpp
+  UserManager.cpp
+  Generating Code...
   Hotel_System.vcxproj -> C:\stefan\Hotel_Mangment_System\hotel_managment_system\Hotel_System\x64\Debug\Hotel_System.exe

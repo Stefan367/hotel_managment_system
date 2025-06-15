@@ -20,6 +20,11 @@ my_string User::getUsername() const
     return username;
 }
 
+my_string User::getPassword() const
+{
+    return password;
+}
+
 bool User::checkPassword(const my_string& input) const
 {
     return password == input;

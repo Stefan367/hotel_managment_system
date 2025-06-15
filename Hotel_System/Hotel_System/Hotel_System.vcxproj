@@ -148,6 +148,15 @@
     <ClCompile Include="room\Room.cpp" />
     <ClCompile Include="room\RoomType.cpp" />
     <ClCompile Include="room\SingleRoom.cpp" />
+    <ClCompile Include="user\Accountant.cpp" />
+    <ClCompile Include="user\ActionReport.cpp" />
+    <ClCompile Include="user\ActionReportFileHandler.cpp" />
+    <ClCompile Include="user\Manager.cpp" />
+    <ClCompile Include="user\Receptionist.cpp" />
+    <ClCompile Include="user\Role.cpp" />
+    <ClCompile Include="user\User.cpp" />
+    <ClCompile Include="user\UserFileHandler.cpp" />
+    <ClCompile Include="user\UserManager.cpp" />
     <ClCompile Include="ValidationFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +182,15 @@
     <ClInclude Include="room\Room.h" />
     <ClInclude Include="room\RoomType.h" />
     <ClInclude Include="room\SingleRoom.h" />
+    <ClInclude Include="user\Accountant.h" />
+    <ClInclude Include="user\ActionReport.h" />
+    <ClInclude Include="user\ActionReportFileHandler.h" />
+    <ClInclude Include="user\Manager.h" />
+    <ClInclude Include="user\Receptionist.h" />
+    <ClInclude Include="user\Role.h" />
+    <ClInclude Include="user\User.h" />
+    <ClInclude Include="user\UserFileHandler.h" />
+    <ClInclude Include="user\UserManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

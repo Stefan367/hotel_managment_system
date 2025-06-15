@@ -2,6 +2,7 @@
 
 const int YEAR_OF_OPENING = 1900;
 const int MAX_YEAR_FOR_RESERVATIONS = 2100;
+const int CURRENT_YEAR = 2025;
 
 namespace RoomConstants
 {

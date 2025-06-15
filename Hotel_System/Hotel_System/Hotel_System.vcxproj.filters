@@ -84,6 +84,33 @@
     <ClCompile Include="reservation\ReservationFileHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="user\User.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="user\Role.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="user\Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="user\Receptionist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="user\Accountant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="user\ActionReport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="user\ActionReportFileHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="user\UserManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="user\UserFileHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h">
@@ -150,6 +177,33 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="reservation\ReservationFileHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="user\Role.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="user\User.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="user\Manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="user\Receptionist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="user\Accountant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="user\ActionReport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="user\ActionReportFileHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="user\UserManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="user\UserFileHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

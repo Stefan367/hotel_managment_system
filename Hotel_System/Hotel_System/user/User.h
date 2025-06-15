@@ -14,6 +14,7 @@ public:
     virtual ~User() = default;
 
     my_string getUsername() const;
+    my_string getPassword() const;
     bool checkPassword(const my_string& input) const;
     Role getRole() const;
 
