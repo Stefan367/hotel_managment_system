@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="core\Date.cpp" />
     <ClCompile Include="core\my_string.cpp" />
     <ClCompile Include="core\my_string_utils.cpp" />
     <ClCompile Include="guest\Guest.cpp" />
@@ -135,6 +136,9 @@
     <ClCompile Include="guest\GuestStatus.cpp" />
     <ClCompile Include="guest\GuestValidator.cpp" />
     <ClCompile Include="Hotel_System.cpp" />
+    <ClCompile Include="reservation\Reservation.cpp" />
+    <ClCompile Include="reservation\ReservationFileHandler.cpp" />
+    <ClCompile Include="reservation\ReservationManager.cpp" />
     <ClCompile Include="room\Apartment.cpp" />
     <ClCompile Include="room\ConferenceRoom.cpp" />
     <ClCompile Include="room\DoubleRoom.cpp" />
@@ -148,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="core\Date.h" />
     <ClInclude Include="core\my_string.h" />
     <ClInclude Include="core\my_string_utils.h" />
     <ClInclude Include="core\my_vector.hpp" />
@@ -156,6 +161,9 @@
     <ClInclude Include="guest\GuestManager.h" />
     <ClInclude Include="guest\GuestStatus.h" />
     <ClInclude Include="guest\GuestValidator.h" />
+    <ClInclude Include="reservation\Reservation.h" />
+    <ClInclude Include="reservation\ReservationFileHandler.h" />
+    <ClInclude Include="reservation\ReservationManager.h" />
     <ClInclude Include="room\Apartment.h" />
     <ClInclude Include="room\ConferenceRoom.h" />
     <ClInclude Include="room\DoubleRoom.h" />

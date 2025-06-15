@@ -55,7 +55,7 @@ double PricingTable::calculatePrice(const Room& room) const
 
             double final = base * mult;
 
-            if (isWeekend) final *= RoomConstants::WEEKEND_COEF;
+            if (isWeekend) final *= PricingConstants::WEEKEND_COEF;
 
             // TODO: To change these coeficients when making a price while the program runs
             final *= seasonMultiplier;
@@ -76,12 +76,18 @@ void PricingTable::updateDemandMultiplier(size_t totalRooms, size_t occupiedRoom
         return;
     }
 
-    double occupancy = static_cast<double>(occupiedRooms) / totalRooms;
+    double occupancy = (1.0 * occupiedRooms) / totalRooms;
 
     if (occupancy >= 0.8)
-        demandMultiplier = 1.3;
+    {
+        demandMultiplier = PricingConstants::DEMAND_HIGH;
+    }
     else if (occupancy >= 0.5)
-        demandMultiplier = 1.1;
+    {
+        demandMultiplier = PricingConstants::DEMAND_MEDIUM;
+    }
     else
-        demandMultiplier = 1.0;
+    {
+        demandMultiplier = PricingConstants::DEMAND_LOW;
+    }
 }

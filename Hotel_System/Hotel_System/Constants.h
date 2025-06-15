@@ -1,5 +1,8 @@
 #pragma once
 
+const int YEAR_OF_OPENING = 1900;
+const int MAX_YEAR_FOR_RESERVATIONS = 2100;
+
 namespace RoomConstants
 {
     const char* const TYPE_SINGLE = "Single";
@@ -11,12 +14,22 @@ namespace RoomConstants
     const char* const STATUS_FREE = "Free";
     const char* const STATUS_RESERVED = "Reserved";
     const char* const STATUS_MAINTENANCE = "Maintenance";
-
-    const double WEEKEND_COEF = 1.5;
 }
 
 namespace GuestConstants
 {
     const int GOLD_TIER_RESERVATIONS = 3;
     const int PLATINIUM_TIER_RESERVATIONS = 10;
+}
+
+namespace PricingConstants
+{
+    const double SEASON_SUMMER_MULTIPLIER = 1.3;
+    const double SEASON_DEFAULT_MULTIPLIER = 1.0;
+
+    const double DEMAND_LOW = 1.0;
+    const double DEMAND_MEDIUM = 1.1;
+    const double DEMAND_HIGH = 1.3;
+
+    const double WEEKEND_COEF = 1.4;
 }
