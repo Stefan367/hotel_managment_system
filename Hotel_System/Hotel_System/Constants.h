@@ -33,3 +33,9 @@ namespace PricingConstants
 
     const double WEEKEND_COEF = 1.4;
 }
+
+namespace UserConstants
+{
+    const size_t MIN_USERNAME_LENGTH = 3;
+    const size_t MIN_PASSWORD_LENGTH = 5;
+}
