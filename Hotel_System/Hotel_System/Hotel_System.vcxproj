@@ -136,6 +136,7 @@
     <ClCompile Include="guest\GuestStatus.cpp" />
     <ClCompile Include="guest\GuestValidator.cpp" />
     <ClCompile Include="Hotel_System.cpp" />
+    <ClCompile Include="income\IncomeAnalyzer.cpp" />
     <ClCompile Include="reservation\Reservation.cpp" />
     <ClCompile Include="reservation\ReservationFileHandler.cpp" />
     <ClCompile Include="reservation\ReservationManager.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="guest\GuestManager.h" />
     <ClInclude Include="guest\GuestStatus.h" />
     <ClInclude Include="guest\GuestValidator.h" />
+    <ClInclude Include="income\IncomeAnalyzer.h" />
     <ClInclude Include="reservation\Reservation.h" />
     <ClInclude Include="reservation\ReservationFileHandler.h" />
     <ClInclude Include="reservation\ReservationManager.h" />

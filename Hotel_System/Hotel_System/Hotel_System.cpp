@@ -1,11 +1,11 @@
 // Hotel_System.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include "../Hotel_System/user/UserManager.h"
-#include "../Hotel_System/user/Manager.h"
-#include "../Hotel_System/user/Receptionist.h"
-#include "../Hotel_System/user/Accountant.h"
-#include "../Hotel_System/user/UserFileHandler.h"
+#include "../Hotel_System/income/IncomeAnalyzer.h"
+#include "../Hotel_System/reservation/Reservation.h"
+#include "../Hotel_System/guest/Guest.h"
+#include "../Hotel_System/room/SingleRoom.h"
+#include "../Hotel_System/room/DoubleRoom.h"
 #include <iostream>
 
 int main()
