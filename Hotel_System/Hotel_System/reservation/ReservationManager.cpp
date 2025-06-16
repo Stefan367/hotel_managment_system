@@ -21,6 +21,7 @@ bool ReservationManager::isRoomAvailable(Room* room, const Date& from, const Dat
     for (size_t i = 0; i < reservations.get_size(); ++i)
     {
         const Reservation& res = reservations[i];
+
         if (res.getRoom()->getRoomNumber() == room->getRoomNumber())
         {
             if (!(to <= res.getCheckInDate() || from >= res.getCheckOutDate()))
@@ -31,6 +32,22 @@ bool ReservationManager::isRoomAvailable(Room* room, const Date& from, const Dat
     }
     return true;
 }
+
+size_t ReservationManager::getNextReservationId()
+{
+    return nextId++;
+}
+
+void ReservationManager::updateNextReservationId(const my_vector<Reservation>& reservations) {
+    size_t maxId = 0;
+    for (size_t i = 0; i < reservations.get_size(); ++i) {
+        if (reservations[i].getId() > maxId)
+            maxId = reservations[i].getId();
+    }
+    nextId = maxId + 1;
+}
+
+
 
 bool ReservationManager::createReservation(const Guest* guest, Room* room, const Date& checkIn, const Date& checkOut)
 {

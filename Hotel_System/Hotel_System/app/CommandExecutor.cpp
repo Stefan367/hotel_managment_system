@@ -2,6 +2,11 @@
 #include "../user/Manager.h"
 #include "../user/Receptionist.h"
 #include "../user/Accountant.h"
+#include "../room/Apartment.h"
+#include "../room/LuxuryRoom.h"
+#include "../room/SingleRoom.h"
+#include "../room/DoubleRoom.h"
+#include "../room/ConferenceRoom.h"
 #include <sstream>
 
 CommandType CommandExecutor::getCommandType(const my_string& command) const
@@ -13,10 +18,11 @@ CommandType CommandExecutor::getCommandType(const my_string& command) const
 	if (command == "register_user") return CommandType::REGISTER_USER;
 	if (command == "view_guest_reservations") return CommandType::VIEW_GUEST_RESERVATIONS;
 	if (command == "update_pricing") return CommandType::UPDATE_PRICING;
+	if (command == "add_room") return CommandType::ADD_ROOM;
 	if (command == "register_guest") return CommandType::REGISTER_GUEST;
 	if (command == "create_reservation") return CommandType::CREATE_RESERVATION;
 	if (command == "cancel_reservation") return CommandType::CANCEL_RESERVATION;
-	if (command == "view_rooms") return CommandType::VIEW_ROOMS_AND_RESERVATIONS;
+	if (command == "view_rooms_reservations") return CommandType::VIEW_ROOMS_AND_RESERVATIONS;
 	if (command == "view_income") return CommandType::VIEW_INCOME;
 	if (command == "export_income") return CommandType::EXPORT_INCOME;
 	return CommandType::UNKNOWN;
@@ -92,18 +98,20 @@ void CommandExecutor::handleHelp()
 	std::cout << "exit\n";
 
 	std::cout << "\n--- Manager Commands ---\n";
-	std::cout << "register_user\n";
+	std::cout << "register_user <username> <passsword> <role>\n";
 	std::cout << "view_guest_reservations <client_number>\n";
 	std::cout << "update_pricing <room_type> <new_price>\n";
+	std::cout << "add_room <room_type> <room_number> <base_price> (room_type: 0 - Single, 1 - Double, 2 - Luxury, 3 - Conference, 4 - Apartment)\n\n";
 
 	std::cout << "\n--- Receptionist Commands ---\n";
-	std::cout << "register_guest\n";
-	std::cout << "create_reservation\n";
-	std::cout << "cancel_reservation <reservation_id>\n";
+	std::cout << "view_rooms_reservations\n";
+	std::cout << "register_guest <name> <phone> <email>\n";
+	std::cout << "create_reservation <clientNumber> <roomNumber> <checkIn> <checkOut>\n";
+	std::cout << "cancel_reservation <reservation_id>\n\n";
 
 	std::cout << "\n--- Accountant Commands ---\n";
-	std::cout << "view_rooms\n";
-	std::cout << "view_income < 1 - total income | 2 - income by day - enter: day month year | 3 - income by month - enter: month year | 4 - income by year - enter: year >\n";
+	std::cout << "view_rooms_reservations\n";
+	std::cout << "view_income < 1 - total income\n2 - income by day - enter: day month year\n3 - income by month - enter: month year\n4 - income by year - enter: year >\n";
 	std::cout << "export_income <filename>\n";
 
 	std::cout << "\nType 'help' to show this menu again.\n";
@@ -170,6 +178,33 @@ void CommandExecutor::handleUpdatePricing(System& system, std::stringstream& ss)
 	system.addActionReport("Updated pricing.");
 }
 
+void CommandExecutor::handleAddRoom(System& system, std::stringstream& ss)
+{
+	int typeInt, number;
+	double price;
+
+	ss >> typeInt >> number >> price;
+	RoomType type = static_cast<RoomType>(typeInt);
+	Room* room = nullptr;
+
+	switch (type)
+	{
+	case RoomType::Single: room = new SingleRoom(number, price); break;
+	case RoomType::Double: room = new DoubleRoom(number, price); break;
+	case RoomType::Luxury: room = new LuxuryRoom(number, price); break;
+	case RoomType::Conference: room = new ConferenceRoom(number, price); break;
+	case RoomType::Apartment: room = new Apartment(number, price); break;
+	default:
+		std::cout << "Invalid room type!\n";
+		return;
+	}
+
+	system.getAllRooms().push_back(room);
+	std::cout << "Room " << number << " added.\n";
+	system.addActionReport("Added room " + number);
+}
+
+
 // === RECEPTIONIST ===
 
 void CommandExecutor::handleRegisterGuest(System& system, std::stringstream& ss)
@@ -199,9 +234,29 @@ void CommandExecutor::handleCreateReservation(System& system, std::stringstream&
 
 	Date checkIn(checkInStr);
 	Date checkOut(checkOutStr);
+	Date today = system.getCurrentDate();
+
+	if (checkIn < today)
+	{
+		std::cout << "Cannot create reservation with a check-in date in the past.\n";
+		return;
+	}
+
+	if (checkIn >= checkOut)
+	{
+		std::cout << "Check-out date must be after check-in date.\n";
+		return;
+	}
+
+	if (!system.getReservationManager().isRoomAvailable(room, checkIn, checkOut))
+	{
+		std::cout << "Room is not available for the selected dates.\n";
+		return;
+	}
 
 	system.getReservationManager().createReservation(guest, room, checkIn, checkOut);
 	system.addActionReport("Created reservation.");
+	std::cout << "Reservation successfully created.\n";
 }
 
 void CommandExecutor::handleCancelReservation(System& system, std::stringstream& ss)
@@ -218,15 +273,45 @@ void CommandExecutor::handleCancelReservation(System& system, std::stringstream&
 void CommandExecutor::handleViewRoomsAndReservations(System& system)
 {
 	const my_vector<Room*>& rooms = system.getAllRooms();
+	const Date& today = system.getCurrentDate();
+	const my_vector<Reservation>& reservations = system.getReservations();
+	ReservationManager& reservationManager = system.getReservationManager();
+
+	std::cout << "Rooms on " << today.to_string().c_str() << ":\n";
 
 	for (size_t i = 0; i < rooms.get_size(); ++i)
 	{
-		std::cout << "Room " << rooms[i]->getRoomNumber()
-			<< " (" << rooms[i]->getStatus().c_str() << ")\n";
+		Room* room = rooms[i];
+		bool isAvailableToday = reservationManager.isRoomAvailable(room, today, today);
+
+		std::cout << "Room " << room->getRoomNumber()
+			<< " - " << (isAvailableToday ? "Available" : "Reserved");
+
+		bool hasReservations = false;
+		for (size_t j = 0; j < reservations.get_size(); ++j)
+		{
+			const Reservation& res = reservations[j];
+			if (res.getRoom()->getRoomNumber() == room->getRoomNumber())
+			{
+				if (!(res.getCheckOutDate() < today))
+				{
+					if (!hasReservations)
+					{
+						std::cout << " | Booked: ";
+						hasReservations = true;
+					}
+					std::cout << "[" << res.getCheckInDate().to_string().c_str()
+						<< " - " << res.getCheckOutDate().to_string().c_str() << "] ";
+				}
+			}
+		}
+		std::cout << "\n";
 	}
 
-	system.getReservationManager().printAllReservations();
+	std::cout << "\n--- All Reservations ---\n";
+	reservationManager.printAllReservations();
 }
+
 
 void CommandExecutor::handleViewIncome(System& system, std::stringstream& ss)
 {
@@ -283,6 +368,7 @@ void CommandExecutor::executeManagerCommand(System& system, std::stringstream& s
 	case CommandType::REGISTER_USER: handleRegisterUser(system, ss); break;
 	case CommandType::VIEW_GUEST_RESERVATIONS: handleViewGuestReservations(system, ss); break;
 	case CommandType::UPDATE_PRICING: handleUpdatePricing(system, ss); break;
+	case CommandType::ADD_ROOM: handleAddRoom(system, ss); break;
 	case CommandType::REGISTER_GUEST: handleRegisterGuest(system, ss); break;
 	case CommandType::CREATE_RESERVATION: handleCreateReservation(system, ss); break;
 	case CommandType::CANCEL_RESERVATION: handleCancelReservation(system, ss); break;
@@ -297,6 +383,7 @@ void CommandExecutor::executeReceptionistCommand(System& system, std::stringstre
 {
 	switch (type)
 	{
+	case CommandType::VIEW_ROOMS_AND_RESERVATIONS: handleViewRoomsAndReservations(system); break;
 	case CommandType::REGISTER_GUEST: handleRegisterGuest(system, ss); break;
 	case CommandType::CREATE_RESERVATION: handleCreateReservation(system, ss); break;
 	case CommandType::CANCEL_RESERVATION: handleCancelReservation(system, ss); break;

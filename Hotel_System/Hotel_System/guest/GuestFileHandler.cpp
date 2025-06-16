@@ -1,5 +1,5 @@
 #include "GuestFileHandler.h"
-#include "GuestStatus.h"
+//#include "GuestStatus.h"
 #include "../core/my_string_utils.h"
 #include <fstream>
 

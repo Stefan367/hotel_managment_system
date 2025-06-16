@@ -1,3 +1,5 @@
 Ivan Ivanov|0888123456|ivan@gmail.com|1|Regular|0|
 Maria Petrova|0899123456|maria@abv.com|2|Regular|0|
 Georgi Georgiev|0878123456|georgi@yahoo.com|3|Regular|0|
+Kriso|0845269874|kris@gmail.com|4|Regular|0|
+Antonio|0888333212|antonio@gmail.com|5|Regular|0|

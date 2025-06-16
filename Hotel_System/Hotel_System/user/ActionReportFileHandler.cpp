@@ -54,7 +54,7 @@ Date ActionReportFileHandler::getNextDateFromLastReport(const my_vector<ActionRe
     if (reports.get_size() == 0)
     {
         // if we dont have any report we start from the current year
-        return Date(1, 1, CURRENT_YEAR);
+        return Date(1, 1, 2025);
     }
 
     Date lastDate = reports[reports.get_size() - 1].getDate();

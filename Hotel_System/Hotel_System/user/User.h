@@ -1,5 +1,4 @@
 #pragma once
-#include "../core/my_string.h"
 #include "Role.h"
 
 class User

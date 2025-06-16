@@ -1,3 +1,0 @@
-admin;admin123;Manager
-reception;recep123;Receptionist
-account;acc123;Accountant

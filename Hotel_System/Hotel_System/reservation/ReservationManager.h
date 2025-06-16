@@ -1,14 +1,14 @@
 #pragma once
 
 #include "Reservation.h"
-#include "../core/my_vector.hpp"
+//#include "../core/my_vector.hpp"
 #include "../room/PricingTable.h"
 
 class ReservationManager
 {
 private:
     my_vector<Reservation> reservations;
-    int nextId = 1;
+    size_t nextId = 1;
     PricingTable pricingTable;
 
 public:
@@ -16,6 +16,9 @@ public:
 
     bool loadPricing(const char* filename);
     void updateDemandMultiplier(size_t totalRooms, size_t occupiedRooms);
+
+    size_t getNextReservationId();
+    void updateNextReservationId(const my_vector<Reservation>& reservations);
 
     bool isRoomAvailable(Room* room, const Date& from, const Date& to) const;
 

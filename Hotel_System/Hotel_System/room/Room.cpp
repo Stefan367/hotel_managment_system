@@ -1,6 +1,6 @@
 #include "Room.h"
-#include <iostream>
-#include <stdexcept>
+//#include <iostream>
+//#include <stdexcept>
 
 Room::Room(int roomNumber, double basePrice, RoomType type)
     : roomNumber(roomNumber), basePrice(basePrice), status("Free"), type(type)

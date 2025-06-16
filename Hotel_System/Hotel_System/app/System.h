@@ -36,6 +36,7 @@ public:
     // Room access
     Room* findRoomByNumber(int roomNumber) const;
     const my_vector<Room*>& getAllRooms() const;
+    my_vector<Room*>& getAllRooms();
 
     // Reservations
     const my_vector<Reservation>& getReservations() const;

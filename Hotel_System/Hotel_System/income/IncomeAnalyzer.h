@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../reservation/Reservation.h"
-#include "../room/RoomType.h"
+//#include "../room/RoomType.h"
 #include <fstream>
 
 class IncomeAnalyzer

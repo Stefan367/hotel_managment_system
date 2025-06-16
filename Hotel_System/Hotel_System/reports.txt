@@ -1,0 +1,21 @@
+1-1-2025;manager123;Registered new user: pesho
+1-1-2025;pesho;Registered guest: Kriso
+1-1-2025;manager123;Registered guest: Antonio
+1-1-2025;manager123;ommand.
+1-1-2025;manager123;mmand.
+1-1-2025;manager123;mand.
+1-1-2025;manager123;
+1-1-2025;manager123;e
+1-1-2025;manager123;Created reservation.
+1-1-2025;manager123;Created reservation.
+1-1-2025;manager123;Created reservation.
+1-1-2025;manager123;Updated pricing.
+1-1-2025;manager123;Created reservation.
+1-1-2025;manager123;Cancelled reservation.
+1-1-2025;manager123;Created reservation.
+1-1-2025;manager123;Created reservation.
+1-1-2025;manager123;Cancelled reservation.
+1-1-2025;manager123;Cancelled reservation.
+2-1-2025;pesho;Created reservation.
+2-1-2025;pesho;Created reservation.
+2-1-2025;pesho;Created reservation.

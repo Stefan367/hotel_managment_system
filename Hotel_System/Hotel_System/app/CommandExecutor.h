@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../core/my_string.h"
+//#include "../core/my_string.h"
 #include "System.h"
 
 enum class CommandType
@@ -14,6 +14,7 @@ enum class CommandType
     REGISTER_USER,
     VIEW_GUEST_RESERVATIONS,
     UPDATE_PRICING,
+    ADD_ROOM,
 
     // Receptionist
     REGISTER_GUEST,
@@ -50,6 +51,7 @@ private:
     void handleRegisterUser(System& system, std::stringstream& ss);
     void handleViewGuestReservations(System& system, std::stringstream& ss);
     void handleUpdatePricing(System& system, std::stringstream& ss);
+    void handleAddRoom(System& system, std::stringstream& ss);
 
     // Receptionist
     void handleRegisterGuest(System& system, std::stringstream& ss);

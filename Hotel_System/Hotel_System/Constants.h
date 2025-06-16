@@ -43,10 +43,10 @@ namespace UserConstants
 
 namespace FilenameConstants
 {
-    const char* ROOMS_FILE = "rooms.txt";
-    const char* USERS_FILE = "users.txt";
-    const char* GUESTS_FILE = "guests.txt";
-    const char* RESERVATIONS_FILE = "reservations.txt";
-    const char* REPORTS_FILE = "actions.txt";
-    const char* PRICING_FILE = "pricing.txt";
+    extern const char* const ROOMS_FILE;
+    extern const char* const GUESTS_FILE;
+    extern const char* const USERS_FILE;
+    extern const char* const RESERVATIONS_FILE;
+    extern const char* const PRICING_FILE;
+    extern const char* const REPORTS_FILE;
 }

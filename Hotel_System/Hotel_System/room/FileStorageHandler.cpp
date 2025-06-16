@@ -10,12 +10,14 @@
 void FileStorageHandler::saveRooms(const my_vector<Room*>& rooms, const char* filename)
 {
     std::ofstream out(filename);
-    if (!out.is_open()) {
+    if (!out.is_open())
+    {
         std::cerr << "Could not open file for writing: " << filename << "\n";
         return;
     }
 
-    for (size_t i = 0; i < rooms.get_size(); ++i) {
+    for (size_t i = 0; i < rooms.get_size(); ++i)
+    {
         Room* r = rooms[i];
         out << static_cast<int>(r->getType()) << " "
             << r->getRoomNumber() << " "

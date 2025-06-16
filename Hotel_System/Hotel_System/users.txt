@@ -1,0 +1,2 @@
+manager123;123456;Manager
+pesho;000000;Receptionist

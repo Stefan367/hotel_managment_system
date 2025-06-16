@@ -2,8 +2,8 @@
 
 #include "Reservation.h"
 #include "../guest/GuestManager.h"
-#include "../core/my_vector.hpp"
-#include "../room/Room.h"
+//#include "../core/my_vector.hpp"
+//#include "../room/Room.h"
 
 class ReservationFileHandler
 {

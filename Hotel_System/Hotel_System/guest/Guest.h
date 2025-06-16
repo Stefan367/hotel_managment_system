@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../core/my_string.h"
+//#include "../core/my_string.h"
 #include "GuestStatus.h"
 #include "../core/my_vector.hpp"
 

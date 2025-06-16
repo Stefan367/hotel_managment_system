@@ -4,7 +4,7 @@
 
 System::System() : reservationManager(*new PricingTable())
 {
-    loadFromFiles();
+    /*loadFromFiles();*/
 
     currentDate = ActionReportFileHandler::getNextDateFromLastReport(reports);
 }
@@ -79,6 +79,11 @@ Room* System::findRoomByNumber(int roomNumber) const
 }
 
 const my_vector<Room*>& System::getAllRooms() const
+{
+    return rooms;
+}
+
+my_vector<Room*>& System::getAllRooms()
 {
     return rooms;
 }
