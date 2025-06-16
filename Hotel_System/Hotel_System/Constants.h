@@ -40,3 +40,13 @@ namespace UserConstants
     const size_t MIN_USERNAME_LENGTH = 3;
     const size_t MIN_PASSWORD_LENGTH = 5;
 }
+
+namespace FilenameConstants
+{
+    const char* ROOMS_FILE = "rooms.txt";
+    const char* USERS_FILE = "users.txt";
+    const char* GUESTS_FILE = "guests.txt";
+    const char* RESERVATIONS_FILE = "reservations.txt";
+    const char* REPORTS_FILE = "actions.txt";
+    const char* PRICING_FILE = "pricing.txt";
+}

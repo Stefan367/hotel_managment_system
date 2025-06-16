@@ -92,3 +92,8 @@ const my_vector<Guest>& GuestManager::getGuests() const
 {
 	return guests;
 }
+
+int& GuestManager::getNextClientNumber()
+{
+    return nextClientNumber;
+}

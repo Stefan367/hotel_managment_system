@@ -28,4 +28,5 @@ public:
     void cancelReservation(int id);
     void printAllReservations() const;
     const my_vector<Reservation>& getReservations() const;
+    my_vector<Reservation>& getReservations();
 };

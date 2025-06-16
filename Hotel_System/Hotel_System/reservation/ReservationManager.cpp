@@ -110,3 +110,8 @@ const my_vector<Reservation>& ReservationManager::getReservations() const
 {
     return reservations;
 }
+
+my_vector<Reservation>& ReservationManager::getReservations()
+{
+    return reservations;
+}

@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="app\System.cpp" />
     <ClCompile Include="core\Date.cpp" />
     <ClCompile Include="core\my_string.cpp" />
     <ClCompile Include="core\my_string_utils.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="ValidationFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="app\System.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="core\Date.h" />
     <ClInclude Include="core\my_string.h" />

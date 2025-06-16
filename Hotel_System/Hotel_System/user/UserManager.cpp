@@ -68,6 +68,11 @@ my_vector<User*>& UserManager::getAllUsers()
     return users;
 }
 
+const my_vector<User*>& UserManager::getAllUsers() const
+{
+    return users;
+}
+
 void UserManager::clear()
 {
     for (size_t i = 0; i < users.get_size(); ++i)

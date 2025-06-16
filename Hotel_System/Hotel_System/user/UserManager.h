@@ -21,6 +21,7 @@ public:
     User* getLoggedInUser() const;
 
     my_vector<User*>& getAllUsers();
+    const my_vector<User*>& getAllUsers() const;
 
     void clear();
 };

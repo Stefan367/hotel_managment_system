@@ -19,4 +19,5 @@ public:
     size_t getGuestCount() const;
     const my_vector<Guest>& getGuests() const;
     my_vector<Guest>& getGuests();
+    int& getNextClientNumber();
 };
