@@ -25,8 +25,13 @@ public:
         const Date& checkIn,
         const Date& checkOut);
 
+
     void cancelReservation(int id);
     void printAllReservations() const;
     const my_vector<Reservation>& getReservations() const;
     my_vector<Reservation>& getReservations();
+
+    void updateBasePrice(RoomType type, double newPrice);
+
+    PricingTable& getPricingTable();
 };

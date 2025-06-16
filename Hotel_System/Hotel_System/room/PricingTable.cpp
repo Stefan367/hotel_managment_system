@@ -27,6 +27,27 @@ bool PricingTable::loadFromFile(const char* filename)
     return true;
 }
 
+bool PricingTable::saveToFile(const char* filename) const
+{
+    std::ofstream out(filename);
+    if (!out.is_open())
+    {
+        std::cerr << "Could not open pricing file for writing: " << filename << "\n";
+        return false;
+    }
+
+    for (size_t i = 0; i < entries.get_size(); ++i)
+    {
+        out << to_string(entries[i].type).c_str() << " "
+            << entries[i].basePrice << " "
+            << entries[i].multiplier << "\n";
+    }
+
+    out.close();
+    return true;
+}
+
+
 void PricingTable::setWeekend(bool flag)
 {
     isWeekend = flag;
@@ -67,6 +88,23 @@ double PricingTable::calculatePrice(const Room& room) const
 
     return 0.0;
 }
+
+void PricingTable::updateBasePrice(RoomType type, double newPrice)
+{
+    for (size_t i = 0; i < entries.get_size(); ++i)
+    {
+        if (entries[i].type == type)
+        {
+            entries[i].basePrice = newPrice;
+            return;
+        }
+    }
+
+    // Create if does not exist
+    PricingEntry entry = { type, newPrice, 1.0 };
+    entries.push_back(entry);
+}
+
 
 void PricingTable::updateDemandMultiplier(size_t totalRooms, size_t occupiedRooms)
 {

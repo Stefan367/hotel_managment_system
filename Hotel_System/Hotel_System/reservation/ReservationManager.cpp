@@ -115,3 +115,13 @@ my_vector<Reservation>& ReservationManager::getReservations()
 {
     return reservations;
 }
+
+void ReservationManager::updateBasePrice(RoomType type, double newPrice)
+{
+    pricingTable.updateBasePrice(type, newPrice);
+}
+
+PricingTable& ReservationManager::getPricingTable()
+{
+    return pricingTable;
+}

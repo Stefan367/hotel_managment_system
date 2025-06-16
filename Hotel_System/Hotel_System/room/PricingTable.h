@@ -20,7 +20,10 @@ private:
 
 public:
     bool loadFromFile(const char* filename);
+    bool saveToFile(const char* filename) const;
+
     double calculatePrice(const Room& room) const;
+    void updateBasePrice(RoomType type, double newPrice);
 
     void setWeekend(bool flag);
     void setSeasonMultiplier(double multiplier);
