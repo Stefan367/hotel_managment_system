@@ -5,8 +5,6 @@
 System::System() : reservationManager(*new PricingTable())
 {
     /*loadFromFiles();*/
-
-    currentDate = ActionReportFileHandler::getNextDateFromLastReport(reports);
 }
 
 void System::loadFromFiles()
@@ -16,8 +14,10 @@ void System::loadFromFiles()
     GuestFileHandler::loadGuests(guestManager.getGuests(), FilenameConstants::GUESTS_FILE, guestManager.getNextClientNumber());
 
     reservationManager.loadPricing(FilenameConstants::PRICING_FILE);
-    ReservationFileHandler::loadFromFile(reservationManager.getReservations(), FilenameConstants::RESERVATIONS_FILE, guestManager, rooms);
+    ReservationFileHandler::loadFromFile(reservationManager, FilenameConstants::RESERVATIONS_FILE, guestManager, rooms);
     ActionReportFileHandler::loadFromFile(reports, FilenameConstants::REPORTS_FILE);
+
+    currentDate = ActionReportFileHandler::getNextDateFromLastReport(reports);
 }
 
 void System::saveToFiles() const

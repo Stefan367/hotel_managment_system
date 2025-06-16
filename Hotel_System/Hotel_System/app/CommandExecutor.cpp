@@ -7,6 +7,7 @@
 #include "../room/SingleRoom.h"
 #include "../room/DoubleRoom.h"
 #include "../room/ConferenceRoom.h"
+#include "../core/my_string_utils.h"
 #include <sstream>
 
 CommandType CommandExecutor::getCommandType(const my_string& command) const
@@ -101,7 +102,7 @@ void CommandExecutor::handleHelp()
 	std::cout << "register_user <username> <passsword> <role>\n";
 	std::cout << "view_guest_reservations <client_number>\n";
 	std::cout << "update_pricing <room_type> <new_price>\n";
-	std::cout << "add_room <room_type> <room_number> <base_price> (room_type: 0 - Single, 1 - Double, 2 - Luxury, 3 - Conference, 4 - Apartment)\n\n";
+	std::cout << "add_room <room_number> <room_type> (room_type: 0 - Single, 1 - Double, 2 - Luxury, 3 - Conference, 4 - Apartment)\n\n";
 
 	std::cout << "\n--- Receptionist Commands ---\n";
 	std::cout << "view_rooms_reservations\n";
@@ -172,36 +173,75 @@ void CommandExecutor::handleUpdatePricing(System& system, std::stringstream& ss)
 	ss >> typeInt >> newPrice;
 
 	RoomType type = static_cast<RoomType>(typeInt);
-	system.getReservationManager().loadPricing(FilenameConstants::PRICING_FILE);
+	if (type == RoomType::Unknown || typeInt < 0 || typeInt > 4)
+	{
+		throw std::invalid_argument("Invalid room type.");
+	}
+
 	system.getReservationManager().getPricingTable().updateBasePrice(type, newPrice);
+
+	my_vector<Room*>& rooms = system.getAllRooms();
+	for (size_t i = 0; i < rooms.get_size(); ++i)
+	{
+		if (rooms[i]->getType() == type)
+		{
+			rooms[i]->setBasePrice(newPrice);
+		}
+	}
+
+	system.getReservationManager().getPricingTable().saveToFile(FilenameConstants::PRICING_FILE);
+
 	std::cout << "Updated base price for type " << typeInt << " to " << newPrice << "\n";
-	system.addActionReport("Updated pricing.");
+	system.addActionReport("Updated pricing for room type.");
 }
+
 
 void CommandExecutor::handleAddRoom(System& system, std::stringstream& ss)
 {
-	int typeInt, number;
-	double price;
+	int roomNumber, typeInt;
+	ss >> roomNumber >> typeInt;
 
-	ss >> typeInt >> number >> price;
-	RoomType type = static_cast<RoomType>(typeInt);
-	Room* room = nullptr;
-
-	switch (type)
+	if (typeInt < 0 || typeInt > static_cast<int>(RoomType::Apartment))
 	{
-	case RoomType::Single: room = new SingleRoom(number, price); break;
-	case RoomType::Double: room = new DoubleRoom(number, price); break;
-	case RoomType::Luxury: room = new LuxuryRoom(number, price); break;
-	case RoomType::Conference: room = new ConferenceRoom(number, price); break;
-	case RoomType::Apartment: room = new Apartment(number, price); break;
-	default:
-		std::cout << "Invalid room type!\n";
+		std::cout << "Invalid room type.\n";
 		return;
 	}
 
-	system.getAllRooms().push_back(room);
-	std::cout << "Room " << number << " added.\n";
-	system.addActionReport("Added room " + number);
+	RoomType type = static_cast<RoomType>(typeInt);
+
+	if (system.findRoomByNumber(roomNumber))
+	{
+		std::cout << "Room number already exists.\n";
+		return;
+	}
+
+	double basePrice;
+	try
+	{
+		basePrice = system.getReservationManager().getPricingTable().getBasePrice(type);
+	}
+	catch (const std::exception& ex)
+	{
+		std::cout << "Failed to get base price: " << ex.what() << "\n";
+		return;
+	}
+
+	Room* newRoom = nullptr;
+	switch (type) {
+	case RoomType::Single: newRoom = new SingleRoom(roomNumber, basePrice); break;
+	case RoomType::Double: newRoom = new DoubleRoom(roomNumber, basePrice); break;
+	case RoomType::Luxury: newRoom = new LuxuryRoom(roomNumber, basePrice); break;
+	case RoomType::Conference: newRoom = new ConferenceRoom(roomNumber, basePrice); break;
+	case RoomType::Apartment: newRoom = new Apartment(roomNumber, basePrice); break;
+	default:
+		std::cout << "Unsupported room type.\n";
+		return;
+	}
+
+	system.getAllRooms().push_back(newRoom);
+	system.addActionReport("Added new room: " + int_to_string(roomNumber));
+
+	std::cout << "Room " << roomNumber << " added successfully.\n";
 }
 
 

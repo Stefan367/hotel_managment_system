@@ -10,7 +10,7 @@ void Application::run()
     try
     {
         system.loadFromFiles();
-        system.advanceToNextDay();
+        //system.advanceToNextDay();
     }
     catch (const std::exception& ex)
     {

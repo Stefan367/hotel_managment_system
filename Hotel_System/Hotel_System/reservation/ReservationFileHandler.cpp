@@ -33,7 +33,7 @@ void ReservationFileHandler::saveToFile(const my_vector<Reservation>& reservatio
 	out.close();
 }
 
-void ReservationFileHandler::loadFromFile(my_vector<Reservation>& reservations, const char* filename, const GuestManager& guestManager, const my_vector<Room*>& rooms)
+void ReservationFileHandler::loadFromFile(ReservationManager& manager, const char* filename, const GuestManager& guestManager, const my_vector<Room*>& rooms)
 {
 	std::ifstream in(filename);
 	if (!in.is_open())
@@ -41,22 +41,23 @@ void ReservationFileHandler::loadFromFile(my_vector<Reservation>& reservations, 
 		throw std::runtime_error("Could not open reservation file for reading.");
 	}
 
-	char line[256];
-	while (in.getline(line, sizeof(line)))
+	my_vector<Reservation>& reservations = manager.getReservations();
+	reservations.clear();
+
+	my_string line;
+	while (getline(in, line))
 	{
-		my_string str(line);
+		my_vector<my_string> tokens = split_string(line, ';');
+		if (tokens.get_size() != INPUT_LINE_PARTS_COUNT) continue;
 
-		my_vector<my_string> parts = split_string(str, ';');
-		if (parts.get_size() != 6) continue;
+		int id = string_to_int(tokens[0]);
+		int guestId = string_to_int(tokens[1]);
+		int roomNumber = string_to_int(tokens[2]);
+		Date checkIn(tokens[3]);
+		Date checkOut(tokens[4]);
+		double totalPrice = string_to_double(tokens[5]);
 
-		int id = string_to_int(parts[0]);
-		int clientNumber = string_to_int(parts[1]);
-		int roomNumber = string_to_int(parts[2]);
-		Date checkIn(parts[3]);
-		Date checkOut(parts[4]);
-		double totalPrice = string_to_double(parts[5]);
-
-		const Guest* guest = guestManager.findGuestByNumber(clientNumber);
+		const Guest* guest = guestManager.findGuestByNumber(guestId);
 		if (!guest) continue;
 
 		Room* matchedRoom = nullptr;
@@ -64,16 +65,17 @@ void ReservationFileHandler::loadFromFile(my_vector<Reservation>& reservations, 
 		{
 			if (rooms[i]->getRoomNumber() == roomNumber)
 			{
-				matchedRoom = rooms[i];
+				matchedRoom = rooms[i]->clone();
 				break;
 			}
 		}
 
 		if (!matchedRoom) continue;
 
-		Reservation reservation(id, guest, matchedRoom->clone(), checkIn, checkOut, totalPrice);
-		reservations.push_back(reservation);
+		reservations.push_back(Reservation(id, guest, matchedRoom, checkIn, checkOut, totalPrice));
 	}
 
 	in.close();
+
+	manager.updateNextReservationId(reservations);
 }

@@ -1,2 +1,4 @@
 manager123;123456;Manager
 pesho;000000;Receptionist
+gosho;111111;Accountant
+apolon12;7777777;Receptionist

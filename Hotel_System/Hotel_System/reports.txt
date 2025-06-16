@@ -19,3 +19,24 @@
 2-1-2025;pesho;Created reservation.
 2-1-2025;pesho;Created reservation.
 2-1-2025;pesho;Created reservation.
+2-1-2025;manager123;Created reservation.
+2-1-2025;manager123;Updated pricing for room type.
+2-1-2025;manager123;Updated pricing for room type.
+2-1-2025;manager123;Cancelled reservation.
+2-1-2025;manager123;Cancelled reservation.
+2-1-2025;manager123;Created reservation.
+2-1-2025;manager123;Cancelled reservation.
+2-1-2025;manager123;Created reservation.
+2-1-2025;manager123;Registered new user: gosho
+3-1-2025;manager123;Registered new user: apolon12
+3-1-2025;manager123;Updated pricing for room type.
+3-1-2025;manager123;Registered guest: Polina
+3-1-2025;manager123;Created reservation.
+3-1-2025;manager123;Created reservation.
+3-1-2025;manager123;Cancelled reservation.
+4-1-2025;manager123;Added new room: 404
+4-1-2025;manager123;Updated pricing for room type.
+4-1-2025;apolon12;Created reservation.
+5-1-2025;manager123;Updated pricing for room type.
+5-1-2025;apolon12;Registered guest: Preslava
+5-1-2025;apolon12;Created reservation.

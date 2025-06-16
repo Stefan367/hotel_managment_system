@@ -1,5 +1,5 @@
-Single      50   1.00
-Double      70   1.20
-Luxury      150  1.60
-Conference  100  2.00
-Apartment   120  1.70
+Single 60 1
+Double 70 1.2
+Luxury 150 1.6
+Conference 100 2
+Apartment 120 1.7

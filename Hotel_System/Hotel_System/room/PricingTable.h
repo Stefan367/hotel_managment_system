@@ -29,4 +29,6 @@ public:
     void setSeasonMultiplier(double multiplier);
     void setDemandMultiplier(double multiplier);
     void updateDemandMultiplier(size_t totalRooms, size_t occupiedRooms);
+
+    double getBasePrice(RoomType type) const;
 };

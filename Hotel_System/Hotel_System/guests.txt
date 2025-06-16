@@ -3,3 +3,5 @@ Maria Petrova|0899123456|maria@abv.com|2|Regular|0|
 Georgi Georgiev|0878123456|georgi@yahoo.com|3|Regular|0|
 Kriso|0845269874|kris@gmail.com|4|Regular|0|
 Antonio|0888333212|antonio@gmail.com|5|Regular|0|
+Polina|0877654985|pogera@gmail.com|6|Regular|0|
+Preslava|0844563321|preska@abv.com|7|Regular|0|

@@ -129,3 +129,15 @@ void PricingTable::updateDemandMultiplier(size_t totalRooms, size_t occupiedRoom
         demandMultiplier = PricingConstants::DEMAND_LOW;
     }
 }
+
+double PricingTable::getBasePrice(RoomType type) const
+{
+    for (size_t i = 0; i < entries.get_size(); ++i)
+    {
+        if (entries[i].type == type)
+        {
+            return entries[i].basePrice;
+        }
+    }
+    throw std::runtime_error("No price found for room type.");
+}
